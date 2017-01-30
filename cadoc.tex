@@ -1,0 +1,666 @@
+\textbf{Certificate Policy and Certificate Practices Statement Template for ESGF CAs}
+
+(In RFC 3647 format)
+
+\textbf{Date:} \today\\
+\textbf{Version:} \versionnum
+
+\section{Introduction}\label{introduction}
+
+The Earth System Grid Federation (ESGF), uses three internal Certification Authorities (CAs), to issue CA and identity certificates for the systems in ESGF.
+These CAs are operated by
+\begin{enumerate}
+\item Argonne National Laboratory (ANL), IL, Lemont, USA
+\item Institut Pierre Simon Laplace (IPSL), Paris, France.
+\item National Supercomputer Centre (NSC), Link\"oping, Sweden.
+\end{enumerate}
+This document describes the set of rules and procedures established by ESGF, for the operation of its CAs. Structured according to RFC 3647
+{[}RFC3647{]}, this document describes policy and practices to be followed by ESGF CAs. Each individual CA is to have its own Certificate Policy and Certificate Practices Statement (CP/CPS) derived from this document.
+The CA/CPS is designed so that a Relying Party can look at them and obtain an understanding of the trustworthiness of credentials issued by the ESGF CAs.
+
+\subsection{Overview}\label{overview}
+
+The ESGF CA infrastructure supports grid and e-science activities in
+the Earth System Grid Federation (ESGF). This document describes the
+set of rules and procedures established by ESGF for the operations of its CAs. The purpose of the ESGF CAs is:
+
+\begin{enumerate}
+\item
+  
+  To sign host certificates for nodes operated by vetted members of the ESGF federation.
+  
+\item
+  
+  To sign subordinate CA certificates for nodes operated by vetted members of the federation, with the understanding that the subordinate CA may only be used to issue end-user credentials and short-lived credential proxies. 
+  
+\end{enumerate}
+
+\subsection{Document name and identification}\label{document-name-and-identification}
+
+This document is the CP and CPS Template of the ESGF CAs.
+
+\textbf{Document title:} Certificate Policy and Certification Practice Statement Template for ESGF CAs\\
+\textbf{Document version:} \versionnum\\
+
+\textbf{Document date:} \today
+
+\subsection{PKI participants}\label{pki-participants}
+
+\begin{enumerate}
+\item
+  
+  Certificate Authorities: ANL, IPSL, and NSC issue CA certificates and host certificates for the ESGF.
+  
+\item
+  
+  Registration Authorities: There are no RAs external to the issuing
+  authorities. The individual CAs are responsible for all approvals and revocations that they perform.
+  
+\item
+  
+  Subscribers: Only institutions that participate in the ESGF receive
+  certificates from the Root CA.
+  
+\item
+  
+  Relying Parties: No stipulation.
+  
+\end{enumerate}
+
+\subsection{Certificate usage}\label{certificate-usage}
+
+The ESGF CA Root certificate may be used for the following purposes:
+
+\begin{enumerate}
+\item
+  
+  To validate the signature of a Subject CA
+  
+\item
+  
+  More generally, to validate any certificate chain ending with this
+  Root, provided all certificates in the chain are used for permitted
+  purposes
+  
+\item
+  
+  To validate the signature on a CRL issued by this Root. No other use
+  of the ESGF CA Root certificate is permitted. The ESGF CA Root
+  asserts that all Subordinate CAs serve the same community and they all
+  issue in distinct namespaces.
+  
+\end{enumerate}
+
+\subsection{Policy administration}\label{policy-administration}
+
+The Argonne National Laboratory (ANL), and National Supercomputer Center (NSC) at Link\"oping University (LiU) are responsible for drafting,
+registering, maintaining and updating this CP/CPS template. The persons
+responsible for this policy and the practices of the CA are: 
+\begin{enumerate}
+\item Lukasz Lacinski, Argonne National Laboratory (ANL), Building 240, 9700 Cass Avenue, Lemont, IL 60439, Email esgf-ca@lists.llnl.gov.
+\item Prashanth Dwarakanath, National Supercomputer Center (NSC), House Galaxen, Entrance 83, Link\"oping University, Campus Valla, Olaus Magnus v\"ag 42-44, Link\"oping, Email: esg-admin@nsc.liu.se.
+\end{enumerate}
+
+\subsection{Definitions and acronyms}\label{definitions-and-acronyms}
+
+\begin{enumerate}
+\item ANL: Argonne National Laboratory, located in Lemont, IL, USA.
+\item IPSL: Institut Pierre Simon Laplace, located in Paris, France.
+\item NSC: National Supercomputer Center at Link\"oping University (LiU), located in Link\"oping, Sweden.
+
+\item EE: Users obtaining credentials from a Subordinate/Subject CA are called End Entities (EE). 
+  
+\item
+  
+  ESGF: is the Earth System Grid Federation.
+
+\item RP:  Relying party (RP) is a computer term used to refer to a server providing access to a secure software application. Claims-based applications, where a claim is a statement an entity makes about itself in order to establish access, are also called relying party applications.
+  
+\item
+  
+  For the purposes of this document, a Subject CA is a CA whose
+  certificate was issued by the Root whose policy and practices are
+  described in this document.
+  
+\item
+  
+  For the purposes of this document, a Subordinate CA is a Subject CA in
+  a hierarchy whose root is described in this document.
+ 
+\item
+  
+  For the purposes of this document, Profile refers to the content of
+  the signed envelope within a certificate, but excluding the public key
+  itself and the lifetime. Thus, Profile normally comprises extensions,
+  the issuer and subject names, but also the type of keys and
+  algorithms, and the version of the certificate.
+  
+\end{enumerate}
+
+\section{Publication and repository responsibilities}\label{publication-and-repository-responsibilities}
+
+It is the responsibility of each of the ESGF CA Root CAs to publish the
+following information on their respective websites
+
+\begin{enumerate}
+\item
+  
+  Its CP/CPS;
+  
+\item
+  
+  Its certificate;
+  
+\item
+  
+  All certificates issued by the ESGF CA Root CA and their status;
+  
+\item
+  
+  The signing policy of the hierarchy of which it forms the root;
+  
+\item
+  
+  Its Certificate Revocation List (CRL)
+  
+\end{enumerate}
+
+The ESGF CA Root CA grants the ESGF the right of unlimited
+redistribution of this information.
+
+\section{Identification and authentication}\label{identification-and-authentication}
+
+\subsection{Naming}\label{naming}
+
+\begin{enumerate}
+\item
+  
+  Each of the Subject CAs shall have a unique name;
+  
+\item
+  
+  Its Subject DN shall form the Subject name of each Subject CA to
+  relate its purpose and distinguish it from others alone.
+  
+\item
+  
+  The Issuer name shall include /O=ESGF/OU=ESGF.ORG.
+  
+\item
+  
+  No subject name of a Subject CA shall be reused anywhere in the
+  hierarchy.
+  
+\item
+  
+  Subject CA names have a fixed and a variable component. The
+  certificate subject names start with the fixed component to which a
+  variable component is appended to make it unique. The fixed component
+  is as follows:
+  
+\end{enumerate}
+
+/O=ESGF/OU=ESGF.ORG
+
+\subsection{Initial identity validation}\label{initial-identity-validation}
+
+A certificate shall be issued to a Subject CA only when:
+
+\begin{enumerate}
+\item
+  
+  The requestor has been ascertained to be the responsible node administrator of the node the certificate is being sought for.
+  
+\item
+ The requestor and his organization have been vetted to be a part of the ESGF federation.
+ 
+\item  
+  The Subject CA promises to adhere to the policies and practices described in this document.
+  
+\item
+  
+  The Subject CA has submitted a certificate request and is able to
+  prove to the Root CA possession of the corresponding private key.
+  
+\end{enumerate}
+
+Furthermore, the ESGF CA Root CA requires, as a condition for
+certificate issuance, that:
+
+\begin{enumerate}
+\item
+  
+  All Subject CAs make available to the ESGF CA Root CA results of CA
+  audits and plans to remedy deficiencies
+  
+\item
+  
+  All Subject CA Managers and Operators agree to be signed up to a
+  closed mailing list, maintained by the ESGF CA Root CA;
+  
+\item
+  
+  The Subject CA's certificate request (and hence certificate) contains
+  no personal information.
+  
+\end{enumerate}
+
+\subsection{Identification and authentication for re-key requests}\label{identification-and-authentication-for-re-key-requests}
+
+ESGF CA Security Officers who manage the Subject CA shall prove
+possession of the private key corresponding to the certificate being
+renewed, and prove possession of the private key corresponding to the
+request being submitted.
+
+\subsection{Identification and authentication for revocation request}\label{identification-and-authentication-for-revocation-request}
+
+The certificate of a Subject CA will be revoked when:
+
+\begin{enumerate}
+\item
+  
+  A revocation request is received which is signed with the private key
+  of the Subject CA; or,
+  
+\item
+  
+  An authenticated revocation request from the CA Manager of the Subject
+  CA is received; or,
+  
+\item
+  
+  The ESGF CA Root CA has otherwise determined the need for revocation,
+  e.g., if the Subject CA does not comply with the requirements imposed
+  on it by the ESGF CA Root.
+  
+\end{enumerate}
+
+\section{Certificate life-cycle and operational requirements}\label{certificate-life-cycle-operational-requirements}
+
+The ESGF CA should use a key of at least 2048 bits have a lifetime of at least five years. For Subject CAs, keys are generated by the requestors who are responsible for the security of the keys themselves. The Subject CAs shall have a lifetime not exceeding one year.
+
+\subsection{Certificate application}\label{certificate-application}
+
+For an initial request, the Manager of the Subject CA shall agree to the
+namespace of the Subject CA with the Manager of the ESGF CA Root CA,
+and shall submit a CP/CPS under which the Subject CA will operate. It is
+the responsibility of the Manager of the Subject CA to ensure that it
+operates within the constraints imposed by the Policy of the Root. 
+
+\subsection{Certificate application processing}\label{certificate-application-processing}
+
+When the ESGF CA Root CA Manager is satisfied that Subject CA will
+operate within the constraints imposed by the Root, The ESGF CA Root CA
+will issue and publish the certificate of the Subject CA.
+
+\subsection{Certificate issuance}\label{certificate-issuance}
+
+The ESGF CA Root CA Manager makes the Subject CA available on its
+website.
+
+\subsection{Certificate acceptance}\label{certificate-acceptance}
+
+Both the ESGF CA Root CA Manager and the ESGF CA Subject CA Manager
+shall verify the content of the Subject CA certificate against the
+CP/CPS of the Subject CA and test its use (e.g. against grid
+middleware). If problems are discovered during testing, the certificate
+shall be revoked by the ESGF CA Root CA, and reissued with changes,
+provided that these changes are still compatible with the CP/CPSes of
+both the ESGF CA Root and Subject CAs.
+
+\subsection{Keypair and certificate usage}\label{key-pair-and-certificate-usage}
+
+The certificates of all Subordinate CAs and those of the EEs issued by
+Subordinate CAs must be used only for purposes of direct academic
+science and grid work, or related incidental support (i.e.
+infrastructure, email). The certificates issued to Subject CAs may only
+be used as CA certificates, i.e., for validating certificates issued by
+them, and for validating CRLs. A Subordinate CA may impose further
+constraints on the use of certificates on, and only on, their EEs.
+Conversely, no Subordinate CA shall relax constraints imposed on its
+policy or operations by the CP/CPS of a CA of which it is itself
+Subordinate. It is the responsibility of the EE to use certificates for
+permitted purposes only. It is the responsibility of RPs to validate the
+certificate to their satisfaction at the time of reliance.
+
+\subsection{Certificate renewal}\label{certificate-renewal}
+
+Issued certificates are never automatically renewed, and it is the responsibility of the certificate requestors to contact the ESGF CAs by emailing to esgf-ca.lists.llnl.gov and requesting for a new certificate. Requestors are expected to generate new keys and make a fresh request for a new certificate. 
+
+\subsection{Certificate revocation and suspension}\label{certificate-revocation-and-suspension}
+
+A Subject key CA shall be revoked if:
+
+\begin{enumerate}
+\item
+  
+  It is seen to consistently and willfully violate its own CP/CPS, or
+  that the CA Manager of the Subject CA does not take steps to address
+  such
+  
+\item
+  
+  It is seen to violate requirements imposed on it by the policy and
+  practices of the Root; or
+  
+\item
+  
+  It can be shown that the private key has been compromised.
+  
+\end{enumerate}
+
+\subsection{Certificate status services}\label{certificate-status-services}
+
+The Root CA shall issue a CRL. Certificates and certificate status of
+Subject CAs are available on the Root CA's web site. See also section
+\ref{ca-or-ra-termination}.
+
+\subsection{End of subscription}\label{end-of-subscription}
+
+No stipulation.
+
+\section{Facility, management and operational controls}\label{facility-management-and-operational-controls}
+
+This section discusses specific ESGF CA procedures related to its
+facility and ESGF CA Root CA operation.
+
+\subsection{Physical security}\label{physical-security-controls}
+
+The machine on which the Root signs its certificates and CRLs is
+expected to be installed in a facility which restricts physical access of the machine only to designated personnel.
+\subsection{Personnel controls}\label{personnel-controls}
+
+Training: The Root CA is OpenSSL based, and ESGF CA Managers must
+have sufficient experience with OpenSSL to be able to issue certificates
+and CRLs. ESGF CA Managers must be permanent staff of the respective institution.
+
+\subsection{Audit logging procedures}\label{audit-logging-procedures}
+
+All OpenSSL operations and basic system logs for the signing machine
+will be saved in files that are periodically signed and backed up onto secondary storage media.
+
+\subsection{Records archival}\label{records-archival}
+
+Records are kept throughout the lifetime of the CA and for a period no
+less than three years after the termination of the CA.
+
+\subsection{Key changeover}\label{key-changeover}
+
+At re-keying, the new Root public keys shall be published on the Root
+CA's web site, as certificates signed by both the old and the new
+private key. The transitional certificate, signed with the old key,
+shall expire at the same time as the old Root certificate, but shall
+otherwise have the same content as the new Root certificate. It shall be
+clearly marked as a transitional certificate, and instructions shall be
+provided for users explaining how to verify the transition.
+
+\subsection{Compromise and disaster-recovery}\label{compromise-and-disaster-recovery}
+
+Following any compromise of the Root private key, The Root CA shall make
+this widely known to all peer CAs, Subject CAs and relying parties.
+Efforts to re-issue new Subject CA certificates will follow the method
+described in section \ref{ca-or-ra-termination}.
+
+\subsection{CA or RA termination}\label{ca-or-ra-termination}
+
+Upon termination of the Root CA, a ESGF CA Manager shall communicate
+this in advance to peer CAs, Subject CAs and relying parties. The
+advance notice should be no less than the longest lifetime of any
+currently valid Subject CA.
+
+\section{Technical security controls}\label{technical-security-controls}
+
+This section discusses technical aspects specific to the operation of
+the ESGF CA Root CA.
+
+\subsection{Key-pair generation and installation}\label{key-pair-generation-and-installation}
+
+The Root CA's key pair shall be generated with sufficient entropy, by the CA. It shall be the responsibility of a ESGF CA Manager to generate the key pair. The Root key pair shall be RSA and have a length of at least 2048 bits. Key pairs for Subject CAs are
+generated according to best practices. Each Subject CA key pair should
+have a length of at least 2048 bits.
+
+\subsection{Other aspects of key pair management}\label{other-aspects-of-key-pair-management}
+
+All Root CA certificates shall be kept and published throughout the
+lifetime of the CA, and a period no less than three years after the
+termination of the CA. Subject CAs' key pairs shall have a lifetime not
+to exceed one year.
+
+\subsection{Computer security controls}\label{computer-security-controls}
+
+Only ESGF CA Security Officers and CA Managers may access the dedicated
+ESGF CA server.
+
+\subsection{Lifecycle technical controls}\label{life-cycle-technical-controls}
+
+Only ESGF CA Security Officers or CA Managers may perform hardware
+maintenance or upgrade software on the dedicated ESGF CA server.
+
+\subsection{Network security controls}\label{network-security-controls}
+\begin{enumerate}
+\item ESGF CA Root server should be on a private LAN with no other hosts on the same network, except the gateway host which it may use in order to download critical updates. 
+\item It's strongly advised that the gateway host only allow packet forwarding for the CA server, when updates are to be installed, ensuring that it is totally isolated from the internet at all other times. 
+\item A local firewall policy on the server that prohibits all machines other than the gateway host machine, to connect to it via ssh, is also recommended. 
+\item No other ports on the server should be open from any machine, including the gateway host machine. This ensures that the ESGF CA Root CA server is disconnected from the internet and all other machines, except the host machine, at all times, other than the time when it is being updated. 
+\item Even when the ESGF CA Root server is being updated, only outbound connection requests from the server ought to be  permitted to receive responses, i.e. it cannot be contacted by any external machine, directly, at any time.
+\end{enumerate}
+
+\subsection{Time-stamping}\label{time-stamping}
+
+The CA server is expected to maintain correct time using NTP service, to stay in sync with designated NTP servers. The selection of the NTP servers is managed by each individual CA, based on their network policies. The ESGF CA Root CA Manager shall periodically check the time on the server, to ensure that it is really in sync, and correct it, only if necessary.
+
+\section{Certificate, CRL and OCSP profiles}\label{certificate-crl-and-ocsp-profiles}
+
+This section articulates details of certificates and certificate
+revocation lists issued by the ESGF CA Root CA. The ESGF CA Root CA
+does not currently provide OCSP support.
+
+\subsection{Certificate profile}\label{certificate-profile}
+
+All certificates issued by the ESGF CA Root CA conform to the Internet
+PKI profile (PKIX) for X.509 certificates as defined by RFC 3280
+{[}RFC3280{]}.
+
+The Root CA shall have the following Profile:
+
+\begin{enumerate}
+\item
+  
+  The certificate shall be version 3 (i.e., the version number shall be
+  2);
+  
+\item
+  
+  The issuer and subject name shall both contain the following:
+O = ESGF, OU = ESGF.ORG 
+  
+\item
+  
+  The signature algorithm shall be sha256WithRSAEncryption, or sha1WithRSAEncryption;
+  
+\item
+  
+  The extensions shall contain:
+  
+
+  \begin{enumerate}
+  \item
+    
+    basicConstraints: CA=true, critical;
+    
+  \item
+    
+    keyUsage: certificate signing, CRL signing, critical;
+    
+  \item
+    
+    There shall be a subjectKeyIdentifier and it shall have the hash as a value;
+    
+  \end{enumerate}
+\end{enumerate}
+
+The requirements on the Profile of the Subject CAs are as follows:
+
+\begin{enumerate}
+\item
+  
+  The certificate shall be version 3 (i.e., the version number shall be
+  2);
+  
+\item
+  
+  basicConstraints must be present and critical and must contain
+  CA=true, ( but may contain other constraints);
+  
+\item
+  
+  keyUsage must be present and critical and must have certificate
+  signing and CRL signing set, and no other value;
+  
+\item
+  
+  There shall be a subjectKeyIdentifier containing the hash.
+  
+\item
+  
+  Other extensions are allowed.
+  
+\end{enumerate}
+
+\subsection{CRL Profile}\label{crl-profile}
+
+The Root CA issues CRL version 2 (i.e., the version number shall be 1).
+The ``lifetime'' of the CRL is 18 months and it is issued at least once
+every year.
+
+\subsection{OCSP Profile}\label{ocsp-profile}
+
+Not applicable.
+
+\section{Compliance audit and other assesments}\label{compliance-audit-and-other-assessments}
+
+The ESGF CA Security Officer shall carry out a compliance audit of the Root
+CA once every year. The audit shall inspect the logs and check the
+security of the activation data and the copies of the encrypted private
+key.
+
+\section{Other business and legal matters}\label{other-business-and-legal-matters}
+
+The section headers in section \ref{other-business-and-legal-matters} are taken from RFC3647 and are kept
+as-is for ease of reference and comparison with other CAs. They must not
+be interpreted or construed in any way that will affect the
+interpretation or construction of the contents of the sections.
+Certificates and all other components of the CA must be used for lawful
+purposes only. CA Managers shall sign a document to the effect that they
+will comply with the procedures and requirements described in this
+document.
+
+\subsection{Fees}\label{fees}
+
+The ESGF CA Root CA charges no fees for its services.
+
+\subsection{Financial responsibility}\label{financial-responsibility}
+
+No financial responsibility is accepted for certificates issued under
+this policy.
+
+\subsection{Confidentiality of business information}\label{confidentiality-of-business-information}
+
+The ESGF CA Root CA will follow best practices to protect any
+confidential information as well as policies specified by the individual institutions.
+
+\subsection{Privacy of personal information}\label{privacy-of-personal-information}
+
+The ESGF CA Root CA does not process any personal data, except for the
+following:
+
+\begin{enumerate}
+\item
+  
+  The email addresses of the ESGF CA Security Officers and CA Managers.
+  These are not published and are used only for announcements pertaining
+  to the Root CA or announcements affecting all Subject CAs.
+  
+\end{enumerate}
+
+ESGF CA Root and Subject CAs publish a generic email address to contact
+ESGF CA Security Officers: esgf-ca@lists.llnl.gov.
+
+\subsection{Intellectual property rights}\label{intellectual-property-rights}
+
+This document is based on RFC3647 and its application to the ``UK
+e-Science Root Certificate Policy and Certification Practices
+Statement'' by the UK e-Science CA run by CCLRC. The ESGF CA Root CA does not claim any IPR on certificates that it has issued. Anybody may
+freely copy from any version of the ESGF CA Root CA's Certificate
+Policy and Certification Practices Statement provided they include an
+acknowledgment of these sources.
+
+\subsection{Representations and warranties}\label{representations-and-warranties}
+
+When issuing a certificate to a Subject CA, the ESGF CA Root CA will
+have evaluated the CP/CPS of the Subject CA and is satisfied that the
+Subject CA, when operating according to its CP/CPS, complies with the
+requirements imposed on it by this document.
+
+\subsection{Disclaimers of warranties}\label{disclaimers-of-warranties}
+
+ESGF CA makes no representation and gives no warranty, condition or
+undertaking in relation to the ESGF CA Root CA and its operation.
+
+\subsection{Limitations of liability}\label{limitations-of-liability}
+
+With respect of the information published by the Root CA, including, but
+not limited to certificates and CRLs, the Root CA shall make best
+endeavors to ensure the information is timely and accurate. ESGF CA
+shall be under no obligation or liability, and no warranty condition or
+representation of any kind is made, given or to be implied as to the
+sufficiency, accuracy or fitness for purpose of such information. The
+recipient party, whether CA, RP, EE, or anyone else, shall in any case
+be entirely responsible for the use to which it puts such information.
+The ESGF CA Root CA also declines any liability for damages arising
+from the nonissuance of a requested certificate, or for the revocation
+of a certificate initiated by the CA or the designated RA acting in
+conformance with this CP/CPS.
+
+\subsection{Indemnities}\label{indemnities}
+
+The ESGF CA Root CA declines any payment of indemnities for damages
+arising from the use or rejection of certificates it issues. Each
+Subject CA and relying party shall indemnify and hold harmless ESGF CA
+and keep ESGF CA indemnified against any and all damages, costs, claims
+or expenses, which are awarded against, or suffered by the Subject CA or
+relying parties or their hosting institution or company, as a result of
+any act or omission of the relying party or Subject CA.
+
+\subsection{Term and termination}\label{term-and-termination}
+
+The initial lifetime of the ESGF CA is five years, and it is intended to be renewed for a similar period, prior to reaching expiration. Should the ESGF CA Root CA service be permanently discontinued, there shall be a federation-wide announcement, prior to closure.
+
+The ESGF CA Root CA shall issue no certificate whose lifetime will exceed the date of termination and is obligated to maintain its CRL until its termination.
+
+\subsection{Individual notices and communications with participants}\label{individual-notices-and-communications-with-participants}
+
+All agreements between the ESGF CA Root CA and any organization must be
+documented and signed by the appropriate authorities. A mailing list
+shall be maintained for announcements pertaining to the ESGF CA Root
+CA, or announcements affecting all Subject CAs.
+
+\subsection{Amendments}\label{amendments}
+
+The ESGF CA Root CA shall communicate amendments to Subject CAs and to
+the ESGF.
+
+\subsection{Dispute resolution provisions}\label{dispute-resolution-provisions}
+
+ESGF CA Security Officers shall resolve any disputes arising out of the
+CP/CPS.
+
+\subsection{Miscellaneous provisions}\label{miscellaneous-provisions}
+
+No stipulation.
+
+\subsection{Other provisions}\label{other-provisions}
+
+No stipulation.
+
+\section{Change log}\label{change-log}

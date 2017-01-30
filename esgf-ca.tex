@@ -1,0 +1,43 @@
+\documentclass[12pt,oneside,a4paper]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % [T1]
+\usepackage{a4wide,graphicx,enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\let\footruleskip\undefined
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{\textsf{CP and CPS template for ESGF CAs}}
+\rhead{\thepage}
+
+% Remember to increment the version number
+\newcommand{\versionnum}{2017-1.0}
+
+\setsecnumdepth{subsubsection}
+\setcounter{tocdepth}{3}
+\parindent=0pt
+\parskip=5pt
+\renewcommand*\thesection{\arabic{section}}
+\newcommand*{\titleSI}{\begingroup% Sagas
+\begin{center}
+\textsf{\Huge Certificate Policy and Certificate Practices Statement Template for ESGF CAs\vspace{20pt}\\}
+Authors: \\Lukasz Lacinski, ANL\\Prashanth Dwarakanath NSC-LIU\vspace{10pt}\\
+Version: \textsc{\versionnum} \\
+\vfill
+Argonne National Laboratory, Lemont, IL, USA\\
+National Supercomputer Centre, Link\"{o}ping, Sweden
+\end{center}
+\par
+\endgroup}
+
+\begin{document}
+\thispagestyle{empty}
+\titleSI
+\frontmatter
+\tableofcontents
+\mainmatter
+
+\input{cadoc.tex}
+\end{document}
