@@ -183,7 +183,7 @@ redistribution of this information.
   
 \item
   
-  The Issuer name shall include /O=ESGF/OU=ESGF.ORG.
+  The Issuer name shall include /O=ESGF.
   
 \item
   
@@ -235,7 +235,7 @@ certificate issuance, that:
 \item
   
   All Subject CA Managers and Operators agree to be signed up to a
-  closed mailing list, maintained by the ESGF Root CA;
+  closed mailing list, if such a mailing list is maintained by the ESGF Root CA;
   
 \item
   
@@ -246,7 +246,7 @@ certificate issuance, that:
 
 \subsection{Identification and authentication for re-key requests}\label{identification-and-authentication-for-re-key-requests}
 
-ESGF CA Security Officers who manage the Subject CA shall prove
+The CA manager of the subject CA shall prove
 possession of the private key corresponding to the certificate being
 renewed, and prove possession of the private key corresponding to the
 request being submitted.
@@ -281,10 +281,9 @@ The ESGF CA should use a key of at least 4096 bits have a lifetime of at least f
 \subsection{Certificate application}\label{certificate-application}
 
 For an initial request, the Manager of the Subject CA shall agree to the
-namespace of the Subject CA with the Manager of the ESGF Root CA,
-and shall submit a CP/CPS under which the Subject CA will operate. It is
+namespace of the Subject CA with the Manager of the ESGF Root CA. It is
 the responsibility of the Manager of the Subject CA to ensure that it
-operates within the constraints imposed by the Policy of the Root. 
+operates within the constraints imposed by the CP/CPS of the ESGF Root CA.
 
 \subsection{Certificate application processing}\label{certificate-application-processing}
 
@@ -301,11 +300,11 @@ website.
 
 Both the ESGF Root CA Manager and the ESGF CA Subject CA Manager
 shall verify the content of the Subject CA certificate against the
-CP/CPS of the Subject CA and test its use (e.g. against grid
+CP/CPS of the ESGF Root CA and test its use (e.g. against grid
 middleware). If problems are discovered during testing, the certificate
 shall be revoked by the ESGF Root CA, and reissued with changes,
 provided that these changes are still compatible with the CP/CPSes of
-both the ESGF CA Root and Subject CAs.
+ESGF Root CA.
 
 \subsection{Keypair and certificate usage}\label{key-pair-and-certificate-usage}
 
@@ -339,14 +338,8 @@ A Subject key CA shall be revoked if:
 \begin{enumerate}
 \item
   
-  It is seen to consistently and willfully violate its own CP/CPS, or
-  that the CA Manager of the Subject CA does not take steps to address
-  such
-  
-\item
-  
   It is seen to violate requirements imposed on it by the policy and
-  practices of the Root; or
+  practices of the ESGF Root CA; or
   
 \item
   
