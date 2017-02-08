@@ -426,6 +426,7 @@ generated according to best practices. Each Subject CA key pair should
 have a length of at least 2048 bits.
 
 \subsection{Private key protection and cryptographic module engineering controls}\label{private-key-protection-and-crypto}
+The ESGF Root CA Manager is responsible for the security of the private key of the Root CA, and any copies, including any held in escrow. Recommendations to secure the Root CA server on the network are found in section \ref{network-security-controls}.
 
 \subsection{Other aspects of key pair management}\label{other-aspects-of-key-pair-management}
 
@@ -439,13 +440,11 @@ No stipulation.
 
 \subsection{Computer security controls}\label{computer-security-controls}
 
-Only ESGF CA Security Officers and CA Managers may access the dedicated
-ESGF CA server.
+Only authorized personnel may access the dedicated ESGF CA server.
 
 \subsection{Lifecycle technical controls}\label{life-cycle-technical-controls}
 
-Only ESGF CA Security Officers or CA Managers may perform hardware
-maintenance or upgrade software on the dedicated ESGF CA server.
+Only authorized personnel may perform hardware maintenance or upgrade software on the dedicated ESGF CA server.
 
 \subsection{Network security controls}\label{network-security-controls}
 \begin{enumerate}
@@ -458,6 +457,7 @@ maintenance or upgrade software on the dedicated ESGF CA server.
 
 \subsection{Time-stamping}\label{time-stamping}
 
+No timestamping service is offered, but ESGF Root CA managers are responsible to ensure that the ESGF Root CA server maintains correct time, using any means necessary, including manual adjustment. This is to ensure that the generated credentials have proper `valid from' and `valid until' values.
 The CA server is expected to maintain correct time using NTP service, to stay in sync with designated NTP servers. The selection of the NTP servers is managed by each individual CA, based on their network policies. The ESGF Root CA Manager shall periodically check the time on the server, to ensure that it is really in sync, and correct it, only if necessary.
 
 \section{Certificate, CRL and OCSP profiles}\label{certificate-crl-and-ocsp-profiles}
@@ -550,10 +550,7 @@ Not applicable.
 
 \section{Compliance audit and other assesments}\label{compliance-audit-and-other-assessments}
 
-The ESGF CA Security Officer shall carry out a compliance audit of the Root
-CA once every year. The audit shall inspect the logs and check the
-security of the activation data and the copies of the encrypted private
-key.
+The organization's security contact/ESGF Admin shall carry out a compliance audit, as directed by the ESGF Software Security Working Team (SSWT), and shall report the findings back to SSWT.
 
 \section{Other business and legal matters}\label{other-business-and-legal-matters}
 
@@ -608,10 +605,7 @@ acknowledgment of these sources.
 
 \subsection{Representations and warranties}\label{representations-and-warranties}
 
-When issuing a certificate to a Subject CA, the ESGF Root CA will
-have evaluated the CP/CPS of the Subject CA and is satisfied that the
-Subject CA, when operating according to its CP/CPS, complies with the
-requirements imposed on it by this document.
+When issuing a certificate to a Subject CA, the ESGF Root CA provide a current copy of the ESGF Root CA CP/CPS, which the requestor is expected to read and comply with.
 
 \subsection{Disclaimers of warranties}\label{disclaimers-of-warranties}
 
