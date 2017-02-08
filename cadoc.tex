@@ -14,8 +14,7 @@ These CAs are operated by
 \item Institut Pierre Simon Laplace (IPSL), Paris, France.
 \item National Supercomputer Centre (NSC), Link\"oping, Sweden.
 \end{enumerate}
-This document describes the set of rules and procedures established by ESGF, for the operation of its CAs. Structured according to RFC 3647
-{[}RFC3647{]}, this document describes policy and practices to be followed by ESGF CAs. Each individual CA is to have its own Certificate Policy and Certificate Practices Statement (CP/CPS) derived from this document.
+This document describes the set of rules and procedures established by ESGF, for the operation of its CAs. Structured according to RFC 3647 (\url{https://www.ietf.org/rfc/rfc3647.txt}), this document describes policy and practices to be followed by ESGF CAs. Each individual CA is to have its own Certificate Policy and Certificate Practices Statement (CP/CPS) derived from this document.
 The CA/CPS is designed so that a Relying Party can look at them and obtain an understanding of the trustworthiness of credentials issued by the ESGF CAs. The most current version of this document will be available at \url{https://github.com/ESGF/esgf-ca}
 
 \subsection{Overview}\label{overview}
@@ -378,6 +377,10 @@ facility and ESGF Root CA operation.
 
 The machine on which the Root signs its certificates and CRLs is
 expected to be installed in a facility which restricts physical access of the machine only to designated personnel.
+
+\subsection{Procedural controls}
+No stipulation.
+
 \subsection{Personnel controls}\label{personnel-controls}
 
 Training: The Root CA is OpenSSL based, and ESGF CA Managers must
@@ -429,12 +432,17 @@ The Root CA's key pair shall be generated with sufficient entropy, by the CA. It
 generated according to best practices. Each Subject CA key pair should
 have a length of at least 2048 bits.
 
+\subsection{Private key protection and cryptographic module engineering controls}\label{private-key-protection-and-crypto}
+
 \subsection{Other aspects of key pair management}\label{other-aspects-of-key-pair-management}
 
 All Root CA certificates shall be kept and published throughout the
 lifetime of the CA, and a period no less than three years after the
 termination of the CA. Subject CAs' key pairs shall have a lifetime not
 to exceed one year.
+
+\subsection{Activation data}\label{activation-data}
+No stipulation.
 
 \subsection{Computer security controls}\label{computer-security-controls}
 
@@ -665,6 +673,13 @@ the ESGF.
 ESGF CA Security Officers shall resolve any disputes arising out of the
 CP/CPS.
 
+\subsection{Governing law}\label{governing-law}
+The ESGF Root CA must comply with the business practices of the organization as well as the laws of the country it operates within.
+
+\subsection{Compliance with applicable law}\label{compliance-with-applicable-law}
+
+All activities relating to the request, issuance, use or acceptance of an ESGF Root CA certificate must comply with the laws of the country it operates within.
+
 \subsection{Miscellaneous provisions}\label{miscellaneous-provisions}
 
 No stipulation.
@@ -672,6 +687,9 @@ No stipulation.
 \subsection{Other provisions}\label{other-provisions}
 
 No stipulation.
+
+\section{Change log}\label{change-log}
+
 \newpage
 \section{ESGF Certificate Policy and Certificate Practices Statement: Review and Approval}
 This Certificate Policy and Certificate Practices Statement for ESGF CAs for the Earth System Grid Federation, was prepared for the exclusive use of ESGF and in particular, its sites and developers. I have reviewed and concur with the contents of this plan.
@@ -723,4 +741,3 @@ This Certificate Policy and Certificate Practices Statement for ESGF CAs for the
 \par\hspace{3.5cm}ESGF Executive Committee Member}
 
 \end{tiny}
-\section{Change log}\label{change-log}
