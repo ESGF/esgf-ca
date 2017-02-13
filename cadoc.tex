@@ -68,7 +68,7 @@ This document is the CP and CPS Template of the ESGF CAs.
 
 \subsection{Certificate usage}\label{certificate-usage}
 
-The ESGF CA Root certificate may be used for the following purposes:
+The ESGF Root CA certificate may be used for the following purposes:
 
 \begin{enumerate}
 \item
@@ -84,7 +84,7 @@ The ESGF CA Root certificate may be used for the following purposes:
 \item
   
   To validate the signature on a CRL issued by this Root. No other use
-  of the ESGF CA Root certificate is permitted. The ESGF CA Root
+  of the ESGF Root CA certificate is permitted. The ESGF Root CA
   asserts that all Subordinate CAs serve the same community and they all
   issue in distinct namespaces.
   
@@ -270,7 +270,7 @@ The certificate of a Subject CA will be revoked when:
   
   The ESGF Root CA has otherwise determined the need for revocation,
   e.g., if the Subject CA does not comply with the requirements imposed
-  on it by the ESGF CA Root.
+  on it by the ESGF Root CA.
   
 \end{enumerate}
 
@@ -448,11 +448,11 @@ Only authorized personnel may perform hardware maintenance or upgrade software o
 
 \subsection{Network security controls}\label{network-security-controls}
 \begin{enumerate}
-\item ESGF CA Root server should be on a private LAN with no other hosts on the same network, except the gateway host which it may use in order to download critical updates. 
+\item ESGF Root CA server should be on a private LAN with no other hosts on the same network, except the gateway host which it may use in order to download critical updates.
 \item It's strongly advised that the gateway host only allow packet forwarding for the CA server, when updates are to be installed, ensuring that it is totally isolated from the internet at all other times. 
 \item A local firewall policy on the server that prohibits all machines other than the gateway host machine, to connect to it via ssh, is also recommended. 
 \item No other ports on the server should be open from any machine, including the gateway host machine. This ensures that the ESGF Root CA server is disconnected from the internet and all other machines, except the host machine, at all times, other than the time when it is being updated.
-\item Even when the ESGF CA Root server is being updated, only outbound connection requests from the server ought to be  permitted to receive responses, i.e. it cannot be contacted by any external machine, directly, at any time.
+\item Even when the ESGF Root CA server is being updated, only outbound connection requests from the server ought to be  permitted to receive responses, i.e. it cannot be contacted by any external machine, directly, at any time.
 \end{enumerate}
 
 \subsection{Time-stamping}\label{time-stamping}
@@ -590,7 +590,7 @@ following:
   
 \end{enumerate}
 
-ESGF CA Root will publish a generic email address to contact
+ESGF Root CA will publish a generic email address to contact
 ESGF Root CA Officers: esgf-ca@lists.llnl.gov.
 
 \subsection{Intellectual property rights}\label{intellectual-property-rights}
